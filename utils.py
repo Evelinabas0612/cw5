@@ -1,10 +1,11 @@
-import psycopg2
 import requests
+import psycopg2
+from api import DATABASE_ADDRESS, DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD
 
 
 class DBManager:
     def __init__(self):
-        self.conn = psycopg2.connect(host='localhost', database='hh', user='postgres', password='root')
+        self.conn = psycopg2.connect(host=DATABASE_ADDRESS, database=DATABASE_NAME, user=DATABASE_USER, password=DATABASE_PASSWORD)
         self.conn.autocommit = True
         self.employer_url = 'https://api.hh.ru/employers?only_with_vacancies=true'
 
