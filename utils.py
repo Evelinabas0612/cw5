@@ -9,11 +9,6 @@ class DBManager:
         self.conn.autocommit = True
         self.employer_url = 'https://api.hh.ru/employers?only_with_vacancies=true'
 
-    def get_employers_data(self, keyword) -> list[dict]:
-        """Выборка работодателей """
-        params = {'text': keyword.lower()}
-        response = requests.get(self.employer_url, params=params).json()['items']
-        return response
 
     def create_tables(self):
         """Создание таблицы Компания и Bакансия"""
